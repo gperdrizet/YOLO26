@@ -1,0 +1,6 @@
+streamlit>=1.31.0
+streamlit-webrtc>=0.47.7
+ultralytics
+pillow
+opencv-python-headless
+av
