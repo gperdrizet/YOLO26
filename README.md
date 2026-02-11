@@ -11,6 +11,16 @@ pinned: false
 
 # YOLO26
 
+A real-time object detection demo using the YOLO26 nano model. This Streamlit web application uses your webcam to detect objects in real-time, demonstrating state-of-the-art computer vision in an interactive format.
+
+This repository includes everything you need to run the demo locally in GitHub Codespaces and deploy it to Hugging Face Spaces.
+
+## Activity goals
+
+1. Successfully deploy the YOLO26 web app to HuggingFace
+2. **Challenge:** Add a confidence threshold slider to the app sidebar that lets users filter detections based on confidence score (hint: use `st.sidebar.slider()` and pass the `conf` parameter to `model.predict()`)
+3. **Challenge:** Display a live count of detected objects grouped by class below the video feed (hint: iterate through `results[0].boxes` to access detection data including class names and counts)
+
 ## Getting Started
 
 ### 1. Create Hugging Face account and Space
@@ -25,7 +35,7 @@ pinned: false
     - Owner: your username
     - Space name: yolo26-demo (or any name you want)
     - License: choose any
-    - SDK: Streamlit
+    - SDK: Docker -> Streamlit
     - Space visibility: Public (recommended for first try)
   - Select "Create Space"
 
