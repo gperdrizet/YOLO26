@@ -1,5 +1,27 @@
 # YOLO26
 
+## Try the app in GitHub Codespaces
+
+1. Fork this repository
+	- Click the "Fork" button at the top right of this page
+	- This creates a copy in your GitHub account
+
+2. Create a Codespace
+	- In your forked repo, click the green "Code" button
+	- Select the "Codespaces" tab
+	- Click "Create codespace on main"
+	- Wait for the environment to build (this installs all dependencies automatically)
+
+3. Run the Streamlit app
+	- Once the Codespace is ready, open a terminal and run:
+
+	  ```bash
+	  streamlit run app.py
+	  ```
+
+	- The app will open in a new browser tab automatically
+	- Grant camera permissions when prompted to test object detection
+
 ## Deploy to Hugging Face Spaces (git remote push)
 
 These steps assume you do not have a Hugging Face account yet.
@@ -19,16 +41,20 @@ These steps assume you do not have a Hugging Face account yet.
 	- Select "Create Space".
 
 3. Configure the Space as a git remote
-	- Log into HuggingFace:
+	- Create a Hugging Face access token:
+	  - Go to https://huggingface.co/settings/tokens
+	  - Create a new token with write permissions
+	  - Copy the token
+
+	- Add the token as a Codespaces secret:
+	  - Go to your GitHub repository settings
+	  - Navigate to Secrets and variables → Codespaces
+	  - Create a new secret named `HF_TOKEN` and paste your token
+
+	- Add the Space as a remote using the token (will be available as `$HF_TOKEN` in Codespaces):
 
 	  ```bash
-	  huggingface-cli login
-	  ```
-
-	- Add the Space as a remote in this repo:
-
-	  ```bash
-	  git remote add hf https://huggingface.co/spaces/<your-username>/<your-space-name>
+	  git remote add hf https://YOUR_HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/<your-username>/<your-space-name>
 	  ```
 
 4. Push the repo to the Space
