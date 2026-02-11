@@ -1,3 +1,14 @@
+---
+title: YOLO26 Camera Demo
+emoji: 📹
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: "1.31.0"
+app_file: app.py
+pinned: false
+---
+
 # YOLO26
 
 ## Try the app in GitHub Codespaces
@@ -26,11 +37,11 @@
 
 These steps assume you do not have a Hugging Face account yet.
 
-1. Create an account
+1. Create a HuggingFace account
 	- Go to https://huggingface.co/join and create a new account.
 	- Verify your email if prompted.
 
-2. Create a new Space
+2. Create a new HuggingFace Space
 	- Go to https://huggingface.co/spaces and select "Create new Space".
 	- Fill in the form:
 	  - Owner: your username
@@ -48,8 +59,9 @@ These steps assume you do not have a Hugging Face account yet.
 
 	- Add the token as a Codespaces secret:
 	  - Go to your GitHub repository settings
-	  - Navigate to Secrets and variables → Codespaces
+	  - Navigate to Settings -> Secrets and variables → Codespaces
 	  - Create a new secret named `HF_TOKEN` and paste your token
+	  - If the codespace is currently running, you will need to rebuild
 
 	- Add the Space as a remote using the token (will be available as `$HF_TOKEN` in Codespaces):
 
@@ -58,12 +70,14 @@ These steps assume you do not have a Hugging Face account yet.
 	  ```
 
 4. Push the repo to the Space
-	- Push your main branch:
+	- Push your main branch (force required for first push since the Space has its own initial commit):
 
 	  ```bash
-	  git push hf main
+	  git push hf main --force
 	  ```
 
+
+	- You will only need to use the `--force` option on the first push.
 	- The Space will build automatically. Open the "App" tab once it finishes.
 
 5. Troubleshooting
