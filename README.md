@@ -1,6 +1,6 @@
 # YOLO26
 
-## Deploy to Hugging Face Spaces (GitHub integration)
+## Deploy to Hugging Face Spaces (git remote push)
 
 These steps assume you do not have a Hugging Face account yet.
 
@@ -18,21 +18,31 @@ These steps assume you do not have a Hugging Face account yet.
 	  - Space visibility: Public (recommended for first try)
 	- Select "Create Space".
 
-3. Connect the Space to GitHub
-	- In the Space, open the "Settings" tab.
-	- Under "Repository", select "Connect to GitHub".
-	- Authorize Hugging Face to access your GitHub account.
-	- Choose this repository and the branch to deploy (main).
-	- Save the settings.
+3. Configure the Space as a git remote
+	- Log into HuggingFace:
 
-4. Wait for the build to finish
-	- The Space will start building automatically from the GitHub repo.
-	- When the build completes, open the "App" tab to see the demo.
-	- Any new push to the connected branch triggers a rebuild.
+	  ```bash
+	  huggingface-cli login
+	  ```
+
+	- Add the Space as a remote in this repo:
+
+	  ```bash
+	  git remote add hf https://huggingface.co/spaces/<your-username>/<your-space-name>
+	  ```
+
+4. Push the repo to the Space
+	- Push your main branch:
+
+	  ```bash
+	  git push hf main
+	  ```
+
+	- The Space will build automatically. Open the "App" tab once it finishes.
 
 5. Troubleshooting
 	- If the build fails, open the "Logs" tab to see the error.
 	- Common issue: missing system libraries. If you see a libGL error,
 	  add a file named packages.txt with a single line:
 		 libgl1
-	  Then commit the change and push to trigger a rebuild.
+	  Then commit and push again to trigger a rebuild.
