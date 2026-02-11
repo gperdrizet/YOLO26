@@ -11,78 +11,79 @@ pinned: false
 
 # YOLO26
 
-## Try the app in GitHub Codespaces
+## Getting Started
 
-1. Fork this repository
-	- Click the "Fork" button at the top right of this page
-	- This creates a copy in your GitHub account
+### 1. Create Hugging Face account and Space
 
-2. Create a Codespace
-	- In your forked repo, click the green "Code" button
-	- Select the "Codespaces" tab
-	- Click "Create codespace on main"
-	- Wait for the environment to build (this installs all dependencies automatically)
+- Create a Hugging Face account:
+  - Go to https://huggingface.co/join and create a new account
+  - Verify your email if prompted
 
-3. Run the Streamlit app
-	- Once the Codespace is ready, open a terminal and run:
+- Create a new Space:
+  - Go to https://huggingface.co/spaces and select "Create new Space"
+  - Fill in the form:
+    - Owner: your username
+    - Space name: yolo26-demo (or any name you want)
+    - License: choose any
+    - SDK: Streamlit
+    - Space visibility: Public (recommended for first try)
+  - Select "Create Space"
 
-	  ```bash
-	  streamlit run app.py
-	  ```
+- Create an access token:
+  - Go to https://huggingface.co/settings/tokens
+  - Create a new token with write permissions
+  - Copy the token (you'll need it in the next step)
 
-	- The app will open in a new browser tab automatically
-	- Grant camera permissions when prompted to test object detection
+### 2. Fork repository and add token secret
 
-## Deploy to Hugging Face Spaces (git remote push)
+- Fork this repository:
+  - Click the "Fork" button at the top right of this page
+  - This creates a copy in your GitHub account
 
-These steps assume you do not have a Hugging Face account yet.
+- Add the Hugging Face token as a Codespaces secret:
+  - In your forked repo, go to Settings → Secrets and variables → Codespaces
+  - Create a new secret named `HF_TOKEN` and paste your token
 
-1. Create a HuggingFace account
-	- Go to https://huggingface.co/join and create a new account.
-	- Verify your email if prompted.
+### 3. Start Codespace and try the app
 
-2. Create a new HuggingFace Space
-	- Go to https://huggingface.co/spaces and select "Create new Space".
-	- Fill in the form:
-	  - Owner: your username
-	  - Space name: yolo26-demo (or any name you want)
-	  - License: choose any
-	  - SDK: Docker -> Streamlit
-	  - Space visibility: Public (recommended for first try)
-	- Select "Create Space".
+- Create a Codespace:
+  - In your forked repo, click the green "Code" button
+  - Select the "Codespaces" tab
+  - Click "Create codespace on main"
+  - Wait for the environment to build (this installs all dependencies automatically)
 
-3. Configure the Space as a git remote
-	- Create a Hugging Face access token:
-	  - Go to https://huggingface.co/settings/tokens
-	  - Create a new token with write permissions
-	  - Copy the token
+- Run the Streamlit app:
+  - Once the Codespace is ready, open a terminal and run:
 
-	- Add the token as a Codespaces secret:
-	  - Go to your GitHub repository settings
-	  - Navigate to Settings -> Secrets and variables → Codespaces
-	  - Create a new secret named `HF_TOKEN` and paste your token
-	  - If the codespace is currently running, you will need to rebuild
+    ```bash
+    streamlit run app.py
+    ```
 
-	- Add the Space as a remote using the token (will be available as `$HF_TOKEN` in Codespaces):
+  - The app will open in a new browser tab automatically
+  - Grant camera permissions when prompted to test object detection
 
-	  ```bash
-	  git remote add hf https://YOUR_HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/<your-username>/<your-space-name>
-	  ```
+### 4. Deploy to Hugging Face Space
 
-4. Push the repo to the Space
-	- Push your main branch (force required for first push since the Space has its own initial commit):
+- Add the Space as a git remote:
 
-	  ```bash
-	  git push hf main --force
-	  ```
+  ```bash
+  git remote add hf https://YOUR_HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/<your-username>/<your-space-name>
+  ```
 
+- Push to the Space (force required for first push):
 
-	- You will only need to use the `--force` option on the first push.
-	- The Space will build automatically. Open the "App" tab once it finishes.
+  ```bash
+  git push hf main --force
+  ```
 
-5. Troubleshooting
-	- If the build fails, open the "Logs" tab to see the error.
-	- Common issue: missing system libraries. If you see a libGL error,
-	  add a file named packages.txt with a single line:
-		 libgl1
-	  Then commit and push again to trigger a rebuild.
+  - You only need `--force` on the first push
+  - The Space will build automatically. Open the "App" tab once it finishes
+
+## Troubleshooting
+
+- If the Space build fails, open the "Logs" tab to see the error
+- Common issue: missing system libraries. If you see a libGL error, add a file named `packages.txt` with a single line:
+  ```
+  libgl1
+  ```
+  Then commit and push again to trigger a rebuild
