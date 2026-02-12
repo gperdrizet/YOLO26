@@ -75,8 +75,8 @@ def main() -> None:
     webcam streamer with the YOLO26 video processor.
     '''
 
-    st.set_page_config(page_title='YOLO26 object detection demo', layout='centered')
-    st.title('YOLO26 object detection demo')
+    st.set_page_config(page_title='YOLO26 real-time object detection', layout='centered')
+    st.title('YOLO26 real-time object detection')
 
     # Configure WebRTC with STUN servers for cloud deployment
     rtc_configuration = RTCConfiguration(
