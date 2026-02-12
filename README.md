@@ -4,9 +4,11 @@ A real-time object detection activity using the YOLO26 nano model. This Streamli
 
 This repository includes everything you need to run the app locally in GitHub Codespaces and deploy it to Streamlit Community Cloud.
 
+Check out a live deployment here: [yolo26.streamlit.app](https://yolo26.streamlit.app)
+
 ## Activity goals
 
-1. Successfully deploy the YOLO26 web app to Streamlit Community Cloud following the instructions below
+1. Successfully deploy your own YOLO26 web app to Streamlit Community Cloud following the instructions below
 2. **Challenge:** Add a confidence threshold slider to the app that lets users filter detections based on confidence score (hint: use `st.sidebar.slider()` and pass the `conf` parameter to `model.predict()`)
 3. **Challenge:** Display a live count of detected objects grouped by class below the video feed (hint: iterate through `results[0].boxes` to access detection data including class names and counts)
 
