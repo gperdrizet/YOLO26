@@ -8,5 +8,6 @@
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libgl1 && python -m pip install --upgrade pip && pip install -r requirements.txt"
+  // Install from base image's package lists (no apt update for reproducibility)
+  "postCreateCommand": "sudo apt-get install -y libgl1 && python -m pip install --upgrade pip && pip install -r requirements.txt"
 }
