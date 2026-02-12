@@ -1,8 +1,8 @@
 # YOLO26: live object detection activity
 
-A real-time object detection demo using the YOLO26 nano model. This Streamlit web application uses your webcam to detect objects in real-time, demonstrating state-of-the-art computer vision in an interactive format.
+A real-time object detection activity using the YOLO26 nano model. This Streamlit web application uses your webcam to detect objects in real-time, demonstrating state-of-the-art computer vision in an interactive format.
 
-This repository includes everything you need to run the demo locally in GitHub Codespaces and deploy it to Streamlit Community Cloud.
+This repository includes everything you need to run the app locally in GitHub Codespaces and deploy it to Streamlit Community Cloud.
 
 ## Activity goals
 
