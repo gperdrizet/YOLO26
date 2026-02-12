@@ -1,4 +1,4 @@
-# YOLO26
+# YOLO26: live object detection demo
 
 A real-time object detection demo using the YOLO26 nano model. This Streamlit web application uses your webcam to detect objects in real-time, demonstrating state-of-the-art computer vision in an interactive format.
 
