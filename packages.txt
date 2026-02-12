@@ -1,0 +1,2 @@
+# System library required by OpenCV (used by ultralytics/YOLO)
+libgl1
