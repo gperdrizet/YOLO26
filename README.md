@@ -6,7 +6,7 @@ This repository includes everything you need to run the app locally in GitHub Co
 
 ## Activity goals
 
-1. Successfully deploy the YOLO26 web app to Streamlit Community Cloud
+1. Successfully deploy the YOLO26 web app to Streamlit Community Cloud following the instructions below
 2. **Challenge:** Add a confidence threshold slider to the app sidebar that lets users filter detections based on confidence score (hint: use `st.sidebar.slider()` and pass the `conf` parameter to `model.predict()`)
 3. **Challenge:** Display a live count of detected objects grouped by class below the video feed (hint: iterate through `results[0].boxes` to access detection data including class names and counts)
 
