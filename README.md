@@ -17,7 +17,7 @@ This repository includes everything you need to run the demo locally in GitHub C
 
 ## Activity goals
 
-1. Successfully deploy the YOLO26 web app to HuggingFace
+1. Successfully deploy the YOLO26 web app to HuggingFace.
 2. **Challenge:** Add a confidence threshold slider to the app sidebar that lets users filter detections based on confidence score (hint: use `st.sidebar.slider()` and pass the `conf` parameter to `model.predict()`)
 3. **Challenge:** Display a live count of detected objects grouped by class below the video feed (hint: iterate through `results[0].boxes` to access detection data including class names and counts)
 
@@ -97,3 +97,12 @@ This repository includes everything you need to run the demo locally in GitHub C
   libgl1
   ```
   Then commit and push again to trigger a rebuild
+
+### WebRTC Camera Issues on Hugging Face Spaces
+
+**Note:** WebRTC (webcam streaming) may not work reliably on Hugging Face Spaces due to networking restrictions and asyncio event loop limitations in the cloud environment. You may see errors like "AttributeError: 'NoneType' object has no attribute 'sendto'" in the logs.
+
+**Recommended workflow:**
+- Use **GitHub Codespaces** for testing the webcam/camera features (works reliably)
+- Deploy to **Hugging Face Spaces** for portfolio/sharing purposes, but be aware webcam functionality may be limited
+- The Space deployment demonstrates your ability to containerize and deploy ML applications, even if WebRTC doesn't fully work

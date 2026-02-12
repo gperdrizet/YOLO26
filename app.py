@@ -7,7 +7,12 @@ and displays annotated results with detected objects.
 
 import av
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
+from streamlit_webrtc import (
+    webrtc_streamer,
+    WebRtcMode,
+    RTCConfiguration,
+    VideoProcessorBase,
+)
 from ultralytics import YOLO
 
 
@@ -21,18 +26,21 @@ def load_model() -> YOLO:
     Returns:
         YOLO: The loaded YOLO26 model instance.
     """
+
     return YOLO("yolo26n.pt")
 
 
-class VideoProcessor:
+class VideoProcessor(VideoProcessorBase):
     """Process video frames for real-time object detection.
     
     This class handles the video stream from the webcam, runs YOLO26 inference
     on each frame, and returns annotated frames with bounding boxes and labels.
+    Inherits from VideoProcessorBase for proper streamlit-webrtc integration.
     """
-    
+
     def __init__(self) -> None:
         """Initialize the video processor with the YOLO26 model."""
+        super().__init__()
         self.model = load_model()
 
     def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
@@ -45,6 +53,7 @@ class VideoProcessor:
             av.VideoFrame: Annotated frame with detected objects, bounding boxes,
                 and class labels drawn on it.
         """
+
         # Convert PyAV frame to numpy array in BGR format
         image = frame.to_ndarray(format="bgr24")
         
@@ -64,6 +73,7 @@ def main() -> None:
     Sets up the page configuration, displays the title, and initializes the
     webcam streamer with the YOLO26 video processor.
     """
+
     st.set_page_config(page_title="YOLO26 camera demo", layout="centered")
     st.title("YOLO26 camera demo")
 
