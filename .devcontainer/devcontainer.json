@@ -3,8 +3,25 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "customizations": {
     "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ],
       "settings": {
-        "remote.restoreForwardedPorts": false
+        "remote.restoreForwardedPorts": false,
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.interpreters.exclude": [
+          "**"
+        ],
+        "python.interpreters.include": [
+          "/usr/local/bin/python"
+        ],
+        "jupyter.kernels.filter": [
+          {
+            "path": "/usr/local/bin/python",
+            "type": "pythonEnvironment"
+          }
+        ]
       }
     }
   },
