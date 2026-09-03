@@ -7,6 +7,7 @@ and displays an annotated video stream with detected objects.
 
 import av
 import streamlit as st
+import torch
 from streamlit_webrtc import (
     webrtc_streamer,
     WebRtcMode,
@@ -14,6 +15,9 @@ from streamlit_webrtc import (
     VideoProcessorBase,
 )
 from ultralytics import YOLO
+
+# Some CPUs don't support NNPACK; disable it to silence PyTorch's repeated warning
+torch.backends.nnpack.enabled = False
 
 
 @st.cache_resource
