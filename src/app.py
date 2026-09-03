@@ -5,6 +5,8 @@ YOLO26 nano model and webcam input. The app processes video frames through strea
 and displays an annotated video stream with detected objects.
 '''
 
+from pathlib import Path
+
 import av
 import streamlit as st
 import torch
@@ -19,6 +21,8 @@ from ultralytics import YOLO
 # Some CPUs don't support NNPACK; disable it to silence PyTorch's repeated warning
 torch.backends.nnpack.enabled = False
 
+MODEL_PATH = Path(__file__).resolve().parent.parent / 'models' / 'yolo26n.pt'
+
 
 @st.cache_resource
 def load_model() -> YOLO:
@@ -31,7 +35,7 @@ def load_model() -> YOLO:
         YOLO: The loaded YOLO26 model instance.
     '''
 
-    return YOLO('yolo26n.pt')
+    return YOLO(MODEL_PATH)
 
 
 class VideoProcessor(VideoProcessorBase):

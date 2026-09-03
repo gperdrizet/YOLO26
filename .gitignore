@@ -1,2 +1,3 @@
 .vscode
-yolo26n.pt
+models/
+data/

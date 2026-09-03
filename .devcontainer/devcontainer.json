@@ -28,6 +28,7 @@
   // - Update base image package index
   // - Install OpenGL dispatch layer package
   // - Update pip
+  // - Create gitignored directories for model weights and data files
   // - Install project Python dependencies
-  "postCreateCommand": "sudo apt-get update -y && sudo apt-get install -y libgl1 && python -m pip install --upgrade pip && pip install -r requirements.txt"
+  "postCreateCommand": "sudo apt-get update -y && sudo apt-get install -y libgl1 && mkdir -p models data && python -m pip install --upgrade pip && pip install -r requirements.txt"
 }

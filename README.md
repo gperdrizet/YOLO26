@@ -31,7 +31,7 @@ Check out a live deployment here: [yolo26.streamlit.app](https://yolo26.streamli
   - Once the Codespace is ready, open a terminal and run:
 
     ```bash
-    streamlit run app.py
+    streamlit run src/app.py
     ```
 
   - The app will open in a new browser tab automatically
@@ -47,7 +47,7 @@ Check out a live deployment here: [yolo26.streamlit.app](https://yolo26.streamli
   - Click "New app"
   - Select your repository from the dropdown
   - Choose the `main` branch
-  - Set the main file path to `app.py`
+  - Set the main file path to `src/app.py`
   - Click "Deploy"
 
 - The app will build and deploy automatically. Once ready, you'll get a public URL to share!
