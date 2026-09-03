@@ -6,6 +6,8 @@ This repository includes everything you need to run the app locally in GitHub Co
 
 Check out a live deployment here: [yolo26.streamlit.app](https://yolo26.streamlit.app)
 
+For a deep dive into how YOLO26 works under the hood, see: Hidayatullah, P., & Tubagus, R. (2026). [*YOLO26: A Comprehensive Architecture Overview and Key Improvements*](https://arxiv.org/abs/2602.14582). arXiv:2602.14582.
+
 ## Activity goals
 
 1. Successfully deploy your own YOLO26 web app to Streamlit Community Cloud following the instructions below

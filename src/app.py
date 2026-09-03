@@ -5,7 +5,11 @@ YOLO26 nano model and webcam input. The app processes video frames through strea
 and displays an annotated video stream with detected objects.
 '''
 
+import os
 from pathlib import Path
+
+# Raise torch's C++ log level before importing it, silencing its NNPACK warning
+os.environ.setdefault('TORCH_CPP_LOG_LEVEL', 'ERROR')
 
 import av
 import streamlit as st
@@ -18,7 +22,7 @@ from streamlit_webrtc import (
 )
 from ultralytics import YOLO
 
-# Some CPUs don't support NNPACK; disable it to silence PyTorch's repeated warning
+# Some CPUs don't support NNPACK; disable it so torch doesn't try to use it
 torch.backends.nnpack.enabled = False
 
 MODEL_PATH = Path(__file__).resolve().parent.parent / 'models' / 'yolo26n.pt'
@@ -85,6 +89,11 @@ def main() -> None:
 
     st.set_page_config(page_title='YOLO26 real-time object detection', layout='centered')
     st.title('YOLO26 real-time object detection')
+    st.caption(
+        'Powered by YOLO26. Learn more in the paper: '
+        '[YOLO26: A Comprehensive Architecture Overview and Key Improvements]'
+        '(https://arxiv.org/abs/2602.14582) (Hidayatullah & Tubagus, 2026).'
+    )
 
     # Configure WebRTC with STUN servers for cloud deployment
     rtc_configuration = RTCConfiguration(
