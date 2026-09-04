@@ -2,7 +2,7 @@
 # Versions pinned to ensure reproducible deployments
 streamlit==1.31.0
 streamlit-webrtc==0.47.7
-opencv-python-headless==4.11.0.86
+opencv-python-headless
 ultralytics==8.4.14
 pillow==10.4.0
 av==16.1.0
