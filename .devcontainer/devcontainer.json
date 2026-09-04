@@ -17,10 +17,8 @@
         
         // Exclude other Python versions from Jupyter kernel list
         "jupyter.kernels.excludePythonEnvironments": [
-          "/bin/python3",
-          "/bin/python3.13",
-          "/usr/local/bin/python3",
-          "/usr/local/bin/python3.12"
+          "/usr/bin/python3",
+          "/usr/bin/python3.13"
         ]
       }
     }
