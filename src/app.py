@@ -25,6 +25,9 @@ from ultralytics import YOLO
 # Some CPUs don't support NNPACK; disable it so torch doesn't try to use it
 torch.backends.nnpack.enabled = False
 
+# Prevent Streamlit's file watcher from crawling torch.classes, which raises spurious errors
+torch.classes.__path__ = []
+
 MODEL_PATH = Path(__file__).resolve().parent.parent / 'models' / 'yolo26n.pt'
 
 
