@@ -4,7 +4,7 @@ A real-time object detection activity using the YOLO26 nano model. This Streamli
 
 This repository includes everything you need to run the app locally in GitHub Codespaces and deploy it to Streamlit Community Cloud.
 
-Check out a live deployment on [Streamlit Community Cloud]([https://yolo26.streamlit.app](https://yolo26-n7mx7s8vdxr2hxncchjvzs.streamlit.app)
+Check out a live deployment on [Streamlit Community Cloud](https://yolo26.streamlit.app](https://yolo26-n7mx7s8vdxr2hxncchjvzs.streamlit.app)
 
 For a deep dive into how YOLO26 works under the hood, see: Hidayatullah, P., & Tubagus, R. (2026). [*YOLO26: A Comprehensive Architecture Overview and Key Improvements*](https://arxiv.org/abs/2602.14582). arXiv:2602.14582.
 
